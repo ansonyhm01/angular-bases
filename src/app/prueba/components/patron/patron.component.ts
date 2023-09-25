@@ -48,7 +48,8 @@ export class PatronComponent implements OnInit {
 
 
     this.patronWebService.PostArchivo(formData).subscribe((resp:any)=>{
-        console.log(resp['mensaje']);
+      this.mensaje=resp['mensaje']
+        // console.log(resp['mensaje']);
     })
   }
   archivo:any=undefined;

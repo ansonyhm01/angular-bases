@@ -12,6 +12,9 @@
         <div class="mt-3 d-flex justify-content-end">
             <button class="mt-5" *ngIf="archivo!=null" class="btn btn-primary" (click)="postPatronWeb()">Agregar</button>
         </div>
+        <span *ngIf="mensaje!=''" style="color:green">
+            {{mensaje}}
+        </span>
     </div>
     <div class="col"> 
         <!-- tabla a mostrar -->
