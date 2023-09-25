@@ -44,13 +44,13 @@ export class PatronComponent implements OnInit {
     const formData = new FormData();
     // formData.append("archivoDBF", this.pruebaFG.value.archivo);
     formData.append("archivoDBF", this.archivo);
-  
-
-
     this.patronWebService.PostArchivo(formData).subscribe((resp:any)=>{
       this.mensaje=resp['mensaje']
         // console.log(resp['mensaje']);
     })
+  }
+  postPatror2(){
+    
   }
   archivo:any=undefined;
   mensaje:string=''
