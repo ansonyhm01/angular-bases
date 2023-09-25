@@ -6,6 +6,8 @@ import { CounterModule } from './counter/counter.module';
 
 import { DbzModule } from './dbz/dbz.module';
 import { HeroesModule } from './heroes/heroes.module';
+import { PruebaModule } from './prueba/prueba.module';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -14,9 +16,11 @@ import { HeroesModule } from './heroes/heroes.module';
   ],
   imports: [
     BrowserModule,
-    CounterModule,
-    HeroesModule,
-    DbzModule
+    HttpClientModule,
+    // CounterModule,
+    // HeroesModule,
+    // DbzModule
+    PruebaModule
   ],
   providers: [],
   bootstrap: [AppComponent]

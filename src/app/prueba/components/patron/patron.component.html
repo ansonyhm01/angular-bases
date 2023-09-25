@@ -1,0 +1,39 @@
+<h1>Patron web</h1>
+<div class="row m-2">
+    <div class="col p-2 border border-primary rounded" [formGroup]="pruebaFG" >
+        <div>
+            <label for="name" class="form-label">Subir Archivo: </label>
+            <input 
+            (change)="elegirAnchivo($event)"
+            class="btn form-control"
+           
+            type="file"/>
+        </div>
+        <div class="mt-3 d-flex justify-content-end">
+            <button class="mt-5" *ngIf="archivo!=null" class="btn btn-primary" (click)="postPatronWeb()">Agregar</button>
+        </div>
+    </div>
+    <div class="col"> 
+        <!-- tabla a mostrar -->
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name </th>
+                <th scope="col">Last Name</th>
+                <th scope="col">Address</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of datosPrueba;let indice=index">
+                <th >{{indice+1}}</th>
+                <td>{{item.name}}</td>
+                <td>{{item.lastName}}</td>
+                <td>{{item.address}}</td>
+              </tr>
+              
+            </tbody>
+          </table>
+
+    </div>
+</div>
