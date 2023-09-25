@@ -15,8 +15,11 @@
       <span> {{ character.name }} - </span>
       <strong> Power: </strong>
       <span>{{ character.power }}</span>
+      <!-- <strong> id: </strong>
+
+      <span>{{ character.id }}</span> -->
     </div>
-    <button class="btn btn-danger" (click)="onDeleteIndexEmit(indice)">X</button>
+    <button class="btn btn-danger" (click)="onDeleteIndexEmit(character.id!)">X</button>
     <!-- <span>{{isEven}}</span>
     <span>{{isOdd}}</span> -->
     <!-- <span>Es el primero{{ isFirst }}</span>

@@ -9,7 +9,7 @@ import { Character } from '../../interfaces/character.interface';
 })
 export class ListComponent implements OnInit {
   @Output()
-  public onDeleteIndex:EventEmitter<number>=new EventEmitter()
+  public onDeleteIndex:EventEmitter<string>=new EventEmitter()
   @Input()
   public characterList:Character[]=[{
     name:'Trunks',
@@ -19,11 +19,11 @@ export class ListComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  onDeleteCharacter(indice:number):void{
-    console.log({indice})
-  }
-  onDeleteIndexEmit(indice:number):void{
-    this.onDeleteIndex.emit(indice)
+  // onDeleteCharacter(indice:number):void{
+  //   console.log({indice})
+  // }
+  onDeleteIndexEmit(id:string):void{
+    this.onDeleteIndex.emit(id)
   }
 
 }
