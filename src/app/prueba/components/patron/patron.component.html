@@ -1,38 +1,43 @@
 <h1>Patron web</h1>
 <div class="row m-2">
-    <div class="col p-2 border border-primary rounded" [formGroup]="pruebaFG" >
+    <div class="col" [formGroup]="pruebaFG" >
+      <div class=" border border-primary rounded  p-2">
+
         <div>
-            <label for="name" class="form-label">Subir Archivo: </label>
-            <input 
-            (change)="elegirAnchivo($event)"
-            class="btn form-control"
-           
-            type="file"/>
+          <label for="name" class="form-label">Subir Archivo: </label>
+          <input 
+          (change)="elegirAnchivo($event)"
+          class="btn form-control"
+          
+          type="file"/>
         </div>
-        <div class="mt-3 d-flex justify-content-end">
-            <button class="mt-5" *ngIf="archivo!=null" class="btn btn-primary" (click)="postPatronWeb()">Agregar</button>
+        <div class="mt-3 d-flex justify-content-between">
+          <button class="mt-5" *ngIf="archivo!=null" class="btn btn-primary" (click)="postPatronWeb()">Agregar</button>
+          <button class="mt-5" *ngIf="archivo!=null" class="btn btn-success" (click)="postPatronWebLeer()">Leer</button>
         </div>
         <span *ngIf="mensaje!=''" style="color:green">
-            {{mensaje}}
+          {{mensaje}}
         </span>
+      </div>
     </div>
     <div class="col"> 
         <!-- tabla a mostrar -->
+        <h3 style="text-align: center;">Lista de centros educativos</h3>
         <table class="table">
             <thead>
               <tr>
                 <th scope="col">#</th>
-                <th scope="col">Name </th>
-                <th scope="col">Last Name</th>
-                <th scope="col">Address</th>
+                <th scope="col">Id </th>
+                <th scope="col">Cod Mod</th>
+                <th scope="col">Centro Educativo</th>
               </tr>
             </thead>
             <tbody>
               <tr *ngFor="let item of datosPrueba;let indice=index">
                 <th >{{indice+1}}</th>
-                <td>{{item.name}}</td>
-                <td>{{item.lastName}}</td>
-                <td>{{item.address}}</td>
+                <td>{{item.id}}</td>
+                <td>{{item.codModC7}}</td>
+                <td>{{item.cenEduC100}}</td>
               </tr>
               
             </tbody>

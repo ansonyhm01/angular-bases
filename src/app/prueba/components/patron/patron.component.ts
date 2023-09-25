@@ -14,19 +14,19 @@ export class PatronComponent implements OnInit {
       archivo: new FormControl(null, Validators.required),
     });
     datosPrueba:any[]=[
-      {
-        name:'jose',
-        lastName:'huillca',
-        address:'av los incas 45'
-      },{
-        name:'maria',
-        lastName:'inojosa',
-        address:'av los sauces 45'
-      },{
-        name:'raul',
-        lastName:'saire',
-        address:'av el sol 45'
-      }
+      // {
+      //   name:'jose',
+      //   lastName:'huillca',
+      //   address:'av los incas 45'
+      // },{
+      //   name:'maria',
+      //   lastName:'inojosa',
+      //   address:'av los sauces 45'
+      // },{
+      //   name:'raul',
+      //   lastName:'saire',
+      //   address:'av el sol 45'
+      // }
     ]
 
   constructor(private patronWebService:PatronWebService) {
@@ -49,9 +49,16 @@ export class PatronComponent implements OnInit {
         // console.log(resp['mensaje']);
     })
   }
-  postPatror2(){
-    
+  postPatronWebLeer(){
+    const formData = new FormData();
+    // formData.append("archivoDBF", this.pruebaFG.value.archivo);
+    formData.append("archivoDBF", this.archivo);
+    this.patronWebService.PostArchivoLeer(formData).subscribe((resp:any)=>{
+      // console.log(resp)
+      this.datosPrueba=resp['resultado']
+    })
   }
+
   archivo:any=undefined;
   mensaje:string=''
   elegirAnchivo(archivo:any){
