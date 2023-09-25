@@ -15,9 +15,9 @@
           <button class="mt-5" *ngIf="archivo!=null" class="btn btn-primary" (click)="postPatronWeb()">Agregar</button>
           <button class="mt-5" *ngIf="archivo!=null" class="btn btn-success" (click)="postPatronWebLeer()">Leer</button>
         </div>
-        <span *ngIf="mensaje!=''" style="color:green">
+        <!-- <span *ngIf="mensaje!=''" style="color:green">
           {{mensaje}}
-        </span>
+        </span> -->
       </div>
     </div>
     <div class="col"> 
@@ -30,6 +30,8 @@
                 <th scope="col">Id </th>
                 <th scope="col">Cod Mod</th>
                 <th scope="col">Centro Educativo</th>
+                <th scope="col">Nro Docente</th>
+    
               </tr>
             </thead>
             <tbody>
@@ -38,6 +40,8 @@
                 <td>{{item.id}}</td>
                 <td>{{item.codModC7}}</td>
                 <td>{{item.cenEduC100}}</td>
+                <td>{{item.tdocenteN60}}</td>
+              
               </tr>
               
             </tbody>

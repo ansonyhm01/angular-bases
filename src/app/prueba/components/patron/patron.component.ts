@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { PatronWebService } from '../../services/patron-web.service';
 import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
-import { Patron } from '../../interfaces/prueba.interface';
+import { Patron, Respuesta, Resultado } from '../../interfaces/prueba.interface';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-patron',
@@ -13,24 +14,9 @@ export class PatronComponent implements OnInit {
     pruebaFG = new FormGroup({
       archivo: new FormControl(null, Validators.required),
     });
-    datosPrueba:any[]=[
-      // {
-      //   name:'jose',
-      //   lastName:'huillca',
-      //   address:'av los incas 45'
-      // },{
-      //   name:'maria',
-      //   lastName:'inojosa',
-      //   address:'av los sauces 45'
-      // },{
-      //   name:'raul',
-      //   lastName:'saire',
-      //   address:'av el sol 45'
-      // }
-    ]
+    datosPrueba:Resultado[]=[]
 
   constructor(private patronWebService:PatronWebService) {
-    // this.buildForm
    }
   // buildForm() {
   //   this.pruebaFG = new FormGroup({
@@ -40,31 +26,28 @@ export class PatronComponent implements OnInit {
   // getFC(control: string): AbstractControl |null {
   //   return this.pruebaFG.get(control);
   // }
+  archivo:any=undefined;
   postPatronWeb(){
     const formData = new FormData();
-    // formData.append("archivoDBF", this.pruebaFG.value.archivo);
     formData.append("archivoDBF", this.archivo);
     this.patronWebService.PostArchivo(formData).subscribe((resp:any)=>{
-      this.mensaje=resp['mensaje']
-        // console.log(resp['mensaje']);
+      const mensaje=resp['mensaje']
+      Swal.fire(mensaje);
     })
   }
   postPatronWebLeer(){
     const formData = new FormData();
-    // formData.append("archivoDBF", this.pruebaFG.value.archivo);
     formData.append("archivoDBF", this.archivo);
     this.patronWebService.PostArchivoLeer(formData).subscribe((resp:any)=>{
       // console.log(resp)
       this.datosPrueba=resp['resultado']
+      // this.datosPrueba[]
     })
   }
 
-  archivo:any=undefined;
-  mensaje:string=''
+  
   elegirAnchivo(archivo:any){
     this.archivo=archivo.target.files[0]
-    // console.log(arch);
-
   }
   ngOnInit(): void {
   }
