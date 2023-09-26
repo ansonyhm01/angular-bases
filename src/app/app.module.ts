@@ -17,10 +17,10 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     HttpClientModule,
-    // CounterModule,
-    // HeroesModule,
-    // DbzModule
-    PruebaModule
+    CounterModule,
+    HeroesModule,
+    DbzModule,
+    // PruebaModule
   ],
   providers: [],
   bootstrap: [AppComponent]
